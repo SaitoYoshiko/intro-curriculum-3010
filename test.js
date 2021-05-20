@@ -2,6 +2,14 @@
 const todo = require('./index.js');
 const assert = require('assert');
 
+/**
+ * 書き出しファイルを削除してから、テストが実行されるよう追記
+ */
+const fs = require('fs');
+fs.unlink('./tasks.json', err => {
+    console.log('ファイルはありません');
+})
+
 // add と list のテスト
 todo.add('ノートを買う');
 todo.add('鉛筆を買う');
